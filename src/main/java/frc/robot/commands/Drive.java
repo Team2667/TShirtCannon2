@@ -11,14 +11,14 @@ public class Drive extends Command {
 
 
     public Drive(DriveTrain driveTrain, CommandXboxController controller) {
-
-        //TODO: Initialize the variables. Use addRequirements() to declare subsystem dependencies.
+        this.driveTrain = driveTrain;
+        this.controller = controller;
+        this.addRequirements (driveTrain);
+        driveTrain.setDefaultCommand(this);
        
     }
 
     public void execute() {
-        
-        // Call the drive method of the driveTrain subsystem and pass in the values from leftSpeed and rightSpeed 
-        // controller.
+        driveTrain.drive(controller.getLeftY(), controller.getRightY());
     }
 }

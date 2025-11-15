@@ -20,7 +20,9 @@ public class RobotContainer {
   }
 
   private void configureBindings() {
-    // TODO: Initialie driveTrain by using the new keyword.
+  controller = new CommandXboxController(0);
+  driveTrain = new DriveTrain();
+  drive = new Drive(driveTrain, controller);
     // Initialie the controller;
     // Initialize drive by using the new keyword and passing in driveTrain and Robot's controller.
 

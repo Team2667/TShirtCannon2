@@ -13,23 +13,22 @@ import static frc.robot.Constants.*;
 
 public class DriveTrain extends SubsystemBase{
     private DifferentialDrive driveDifferential;
-    private SparkMax leftLeader;
-    private SparkMax leftFollower;
-    private SparkMax rightLeader;
-    private SparkMax rightFollower;
+    private SparkMax leftMotor;
+    private SparkMax RightMotor;
     
 
-    // TODO: Initialie the motors. Note: DeviceID is also referred to as CANId. They are defined in the Constants file.
-    // TODO: Configure leftFollower to follow leftLeader and rightFollower to follow rightLeader. See example
-    // https://github.com/Team2667/Reefscape/blob/main/src/main/java/frc/robot/subsystems/Elevator.java
-    // TODO: Initialie driveDifferential with the left and right leader motors.
+
 
     public DriveTrain() {
+        leftMotor=new SparkMax(leftCANId, MotorType.kBrushless);
+        RightMotor=new SparkMax(rightCANId, MotorType.kBrushless);
+        driveDifferential=new DifferentialDrive(leftMotor, RightMotor);
     }
 
     
     public void drive(double leftSpeed, double rightSpeed) {
         // TODO: call the tankDrive method of driveDifferential.
+        driveDifferential.tankDrive(leftSpeed, rightSpeed);
     }
 
 }
